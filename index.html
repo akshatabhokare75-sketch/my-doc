@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Folder</title>
+    <title>My Doc</title>
 </head>
+
 <body>
 
-    <h1>📁 My Folder</h1>
+    <h1>📁 My Doc</h1>
+    <p>Downloading files...</p>
 
-    <p><a href="1.txt" download>📄 Download 1.txt</a></p>
+    <script>
+        const files = ["1.txt", "2.txt"];
 
-    <p><a href="2.txt" download>📄 Download 2.txt</a></p>
-
-   
+        files.forEach((file, index) => {
+            setTimeout(function() {
+                const link = document.createElement("a");
+                link.href = file;
+                link.download = file;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }, index * 2000);
+        });
+    </script>
 
 </body>
 </html>
